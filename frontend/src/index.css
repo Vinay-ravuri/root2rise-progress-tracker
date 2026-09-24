@@ -1,0 +1,517 @@
+/* ===== Root2Rise Progress Tracker — Styles ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #0f1117;
+  --color-surface: #1a1d27;
+  --color-surface-hover: #22263a;
+  --color-border: #2a2e3d;
+  --color-text: #e4e6ef;
+  --color-text-muted: #8b8fa3;
+  --color-primary: #6c63ff;
+  --color-primary-hover: #5a52e0;
+  --color-accent: #00d2ff;
+  --color-success: #22c55e;
+  --color-success-bg: rgba(34, 197, 94, 0.12);
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- App Layout --- */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  letter-spacing: -0.5px;
+}
+
+.logo-accent {
+  color: var(--color-primary);
+}
+
+.header-tag {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.app-main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* --- Dashboard --- */
+.dashboard-header {
+  margin-bottom: 32px;
+}
+
+.dashboard-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.stats-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 14px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.dashboard h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* --- Course Grid --- */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+
+.course-card:hover {
+  border-color: var(--color-primary);
+}
+
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.course-card-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.course-desc {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.course-card-actions {
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+/* --- Badges --- */
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.badge.enrolled {
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--color-primary);
+}
+
+.badge.completed-badge {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.btn-enroll {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-enroll:hover:not(:disabled) {
+  background: rgba(108, 99, 255, 0.1);
+}
+
+.btn-complete {
+  background: var(--color-success);
+  color: #fff;
+}
+
+.btn-complete:hover:not(:disabled) {
+  background: #1aad50;
+}
+
+.btn-back {
+  background: transparent;
+  color: var(--color-text-muted);
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.btn-back:hover {
+  color: var(--color-text);
+}
+
+/* --- Progress Bar --- */
+.mini-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--color-bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar.large {
+  height: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 10px;
+  transition: width 0.4s ease;
+  min-width: 0;
+}
+
+.progress-text {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.progress-info {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* --- Course Page --- */
+.course-page {
+  max-width: 800px;
+}
+
+.course-header {
+  margin: 24px 0 20px;
+}
+
+.course-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.course-header .course-desc {
+  margin-top: 8px;
+}
+
+.course-progress-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+
+.course-page h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* --- Lesson List --- */
+.lesson-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lesson-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+
+.lesson-item:hover {
+  border-color: var(--color-primary);
+}
+
+.lesson-item.completed {
+  border-color: var(--color-success);
+  background: rgba(34, 197, 94, 0.04);
+}
+
+.lesson-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lesson-index {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.lesson-item.completed .lesson-index {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.lesson-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.lesson-link {
+  font-size: 0.8rem;
+  margin-top: 2px;
+  display: inline-block;
+}
+
+.lesson-actions {
+  flex-shrink: 0;
+}
+
+/* --- States --- */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.error-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--color-error);
+  background: var(--color-surface);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-lg);
+}
+
+.error-state button {
+  margin-top: 12px;
+}
+
+.msg {
+  font-size: 0.82rem;
+  color: var(--color-success);
+  margin-top: 4px;
+}
+
+.lesson-msg {
+  width: 100%;
+  text-align: right;
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  .app-main {
+    padding: 20px 14px;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    flex: 1;
+    min-width: 80px;
+    padding: 10px 14px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-header h1,
+  .course-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .lesson-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lesson-actions {
+    align-self: flex-end;
+  }
+}
